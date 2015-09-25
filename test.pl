@@ -1,4 +1,7 @@
 #!/usr/bin/perl
-$var1 = $ARGV[0];
-$var2 = $ARGV[1];
-print "Var1 : " . $var1 . "\nVar2 : " . $var2 . "\n";
+system("uptime 1>/tmp/tmp-log-process-c 2>&1");
+open(fileHandler, "/tmp/tmp-log-process-c");
+while($line = <fileHandler>) {
+	print $line;
+}
+close(fileHandler)
